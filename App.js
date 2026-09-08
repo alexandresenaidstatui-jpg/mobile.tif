@@ -1,20 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import Quem_E_Voce from './pages/quem_e_voce';
+import Aluno from './pages/aluno';
 
 export default function App() {
+  const [pagina, setPagina] = useState('quem-e-voce');
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <>
+      {pagina === 'quem-e-voce' ? (
+        <Quem_E_Voce onAlunoContinue={() => setPagina('aluno')} />
+      ) : (
+        <Aluno />git commit -m "first commit"
+      )}
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
