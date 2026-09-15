@@ -57,14 +57,14 @@ export default function QualSeraMudanca({ }) {
 
           {/* Título */}
           <Text style={styles.title}>
-            Qual sera a mudança
+            Qual será a mudança?
           </Text>
 
           {/* Campo material */}
           <View style={styles.materialArea}>
 
             <Text style={styles.label}>
-              escolha um bem material
+              O que você quer mudar?
             </Text>
 
             <TextInput
@@ -79,7 +79,7 @@ export default function QualSeraMudanca({ }) {
           <View style={styles.justificativaArea}>
 
             <Text style={styles.label}>
-              justifique o porque da mudança
+              Conte o motivo da mudança
             </Text>
 
             <TextInput
@@ -98,7 +98,7 @@ export default function QualSeraMudanca({ }) {
             activeOpacity={0.8}
             onPress={continuar}
           >
-           
+            <Text style={styles.buttonText}>Enviar resposta</Text>
           </TouchableOpacity>
 
         </View>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
 
   /* BARRA ROXA */
   topBar: {
-    height: 33,
+    height: 10,
     width: "100%",
     backgroundColor: "#914CFF",
   },
@@ -133,32 +133,39 @@ const styles = StyleSheet.create({
 
   /* CARD BRANCO */
   card: {
-    width: 225,
-    height: 301,
+    width: "88%",
+    maxWidth: 440,
+    minHeight: 380,
 
     backgroundColor: "#fff",
 
-    borderRadius: 9,
+    borderRadius: 24,
 
     alignItems: "center",
 
-    paddingTop: 7,
+    paddingTop: 34,
+    paddingHorizontal: 28,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.25,
+    shadowRadius: 20,
+    elevation: 10,
   },
 
  
 
   /* TÍTULO */
   title: {
-    fontSize: 14,
+    fontSize: 26,
     fontWeight: "700",
     color: "#914CFF",
 
-    marginBottom: 43,
+    marginBottom: 28,
   },
 
   /* MATERIAL */
   materialArea: {
-    width: 164,
+    width: "100%",
 
     alignItems: "flex-start",
 
@@ -167,68 +174,78 @@ const styles = StyleSheet.create({
 
   /* JUSTIFICATIVA */
   justificativaArea: {
-    width: 183,
+    width: "100%",
 
     alignItems: "flex-start",
   },
 
   /* TEXTOS */
   label: {
-    fontSize: 10,
+    fontSize: 13,
     fontWeight: "500",
 
     color: "#111",
 
     marginLeft: 6,
-    marginBottom: 7,
+    marginBottom: 8,
   },
 
   /* INPUT ROXO */
   materialInput: {
-    width: 131,
-    height: 21,
+    width: "100%",
+    height: 48,
 
     backgroundColor: "#914CFF",
 
-    borderRadius: 6,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#CBD5E1",
 
     paddingHorizontal: 7,
 
     color: "#fff",
 
-    fontSize: 10,
+    fontSize: 14,
   },
 
   /* CAIXA DE TEXTO */
   textArea: {
-    width: 183,
-    height: 75,
+    width: "100%",
+    height: 110,
 
     backgroundColor: "#914CFF",
 
-    borderRadius: 6,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#CBD5E1",
 
     paddingHorizontal: 8,
     paddingTop: 7,
 
     color: "#fff",
 
-    fontSize: 11,
+    fontSize: 14,
   },
 
   /* BOTÃO */
   nextButton: {
-    width: 65,
-    height: 13,
+    width: "100%",
+    height: 52,
 
     backgroundColor: "#914CFF",
 
-    borderRadius: 10,
+    borderRadius: 14,
 
     justifyContent: "center",
     alignItems: "center",
 
     marginTop: 21,
+  },
+
+  buttonText: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "700",
   },
 
 });

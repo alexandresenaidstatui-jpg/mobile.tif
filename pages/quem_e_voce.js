@@ -7,7 +7,8 @@ import {
   Alert,
 } from 'react-native';
 
-const PURPLE = '#9147FF';
+const NAVY = '#000000';
+const ORANGE = '#9147FF';
 
 export default function Quem_E_Voce({ onAlunoContinue, onFuncionarioContinue }) {
   const [tipo, setTipo] = useState(null);
@@ -53,6 +54,10 @@ export default function Quem_E_Voce({ onAlunoContinue, onFuncionarioContinue }) 
             Quem é você
           </Text>
 
+          <Text style={styles.subtitle}>
+            Escolha seu perfil para continuar
+          </Text>
+
           {/* Botão Aluno */}
           <Pressable
             onPress={() => setTipo('aluno')}
@@ -87,9 +92,7 @@ export default function Quem_E_Voce({ onAlunoContinue, onFuncionarioContinue }) 
               pressed && styles.pressed,
             ]}
           >
-            <Text style={styles.arrow}>
-              ▶
-            </Text>
+            <Text style={styles.arrow}>Continuar</Text>
           </Pressable>
 
         </View>
@@ -99,15 +102,14 @@ export default function Quem_E_Voce({ onAlunoContinue, onFuncionarioContinue }) 
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: NAVY,
   },
 
   topBar: {
-    height: 35,
-    backgroundColor: PURPLE,
+    height: 10,
+    backgroundColor: ORANGE,
     width: '100%',
   },
 
@@ -118,16 +120,19 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    width: '85%',
-    height: 360,
-
+    width: '88%',
+    maxWidth: 440,
+    minHeight: 430,
     backgroundColor: '#fff',
-
-    borderRadius: 11,
-
+    borderRadius: 24,
     alignItems: 'center',
-
-    paddingTop: 24,
+    paddingTop: 42,
+    paddingHorizontal: 28,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.25,
+    shadowRadius: 20,
+    elevation: 10,
   },
 
   /*
@@ -137,7 +142,7 @@ const styles = StyleSheet.create({
     width: 42,
     height: 44,
     position: 'relative',
-    marginBottom: 0,
+    marginBottom: 14,
   },
 
   roofLeft: {
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
     width: 19,
     height: 3,
 
-    backgroundColor: PURPLE,
+    backgroundColor: ORANGE,
 
     left: 2,
     top: 12,
@@ -162,7 +167,7 @@ const styles = StyleSheet.create({
     width: 19,
     height: 3,
 
-    backgroundColor: PURPLE,
+    backgroundColor: ORANGE,
 
     right: 2,
     top: 12,
@@ -179,7 +184,7 @@ const styles = StyleSheet.create({
     height: 21,
 
     borderWidth: 2,
-    borderColor: PURPLE,
+    borderColor: ORANGE,
 
     left: 9,
     top: 14,
@@ -192,7 +197,7 @@ const styles = StyleSheet.create({
     height: 10,
 
     borderWidth: 1.5,
-    borderColor: PURPLE,
+    borderColor: ORANGE,
 
     left: 6,
     bottom: 0,
@@ -202,39 +207,39 @@ const styles = StyleSheet.create({
    * Título
    */
   title: {
-    color: PURPLE,
-
-    fontSize: 24,
-
+    color: ORANGE,
+    fontSize: 28,
     fontWeight: '700',
-
     marginTop: 0,
-    marginBottom: 28,
+    marginBottom: 8,
+  },
+
+  subtitle: {
+    color: '#666',
+    fontSize: 14,
+    marginBottom: 30,
   },
 
   /*
    * Opções
    */
   option: {
-    width: '68%',
-    height: 30,
-
-    borderRadius: 10,
-
-    backgroundColor: PURPLE,
+    width: '100%',
+    height: 52,
+    borderRadius: 14,
+    backgroundColor: ORANGE,
+    borderWidth: 1,
+    borderColor: '#CBD5E1',
 
     alignItems: 'center',
     justifyContent: 'center',
 
-    marginBottom: 24,
+    marginBottom: 14,
   },
 
   optionSelected: {
     backgroundColor: '#7D35F5',
-
-    transform: [
-      { scale: 1.03 },
-    ],
+    borderColor: ORANGE,
   },
 
   optionText: {
@@ -242,7 +247,7 @@ const styles = StyleSheet.create({
 
     fontSize: 16,
 
-    fontWeight: '500',
+    fontWeight: '700',
 
     lineHeight: 18,
   },
@@ -253,14 +258,11 @@ const styles = StyleSheet.create({
   continueButton: {
     position: 'absolute',
 
-    bottom: 30,
-
-    width: 110,
-    height: 32,
-
-    borderRadius: 10,
-
-    backgroundColor: PURPLE,
+    bottom: 32,
+    width: '100%',
+    height: 52,
+    borderRadius: 14,
+    backgroundColor: ORANGE,
 
     alignItems: 'center',
     justifyContent: 'center',
@@ -268,10 +270,8 @@ const styles = StyleSheet.create({
 
   arrow: {
     color: '#fff',
-
-    fontSize: 18,
-
-    marginLeft: 2,
+    fontSize: 15,
+    fontWeight: '700',
   },
 
   pressed: {

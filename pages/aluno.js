@@ -12,9 +12,10 @@ import {
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
-const PURPLE = '#9147FF';
+const NAVY = '#000000';
+const ORANGE = '#9147FF';
 
-export default function Aluno({ onCadastroConcluido }) {
+export default function Aluno({ onVoltar, onCadastroConcluido }) {
   const [email, setEmail] = useState('');
   const [nome, setNome] = useState('');
   const [senha, setSenha] = useState('');
@@ -71,6 +72,7 @@ export default function Aluno({ onCadastroConcluido }) {
 
               {/* Título */}
               <Text style={styles.title}>Cadastrar aluno</Text>
+              <Text style={styles.subtitle}>Crie seu acesso para continuar</Text>
 
               {/* Primeira linha */}
               <View style={styles.row}>
@@ -132,12 +134,22 @@ export default function Aluno({ onCadastroConcluido }) {
               {/* Botão */}
               <Pressable
                 style={({ pressed }) => [
+                  styles.backButton,
+                  pressed && styles.backButtonPressed,
+                ]}
+                onPress={onVoltar}
+              >
+                <Text style={styles.backText}>←  Voltar</Text>
+              </Pressable>
+
+              <Pressable
+                style={({ pressed }) => [
                   styles.button,
                   pressed && styles.buttonPressed,
                 ]}
                 onPress={cadastrar}
               >
-                <Text style={styles.arrow}>▶</Text>
+                <Text style={styles.buttonText}>Continuar</Text>
               </Pressable>
             </View>
           </ScrollView>
@@ -177,18 +189,18 @@ function Field({
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: NAVY,
   },
 
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: NAVY,
   },
 
   topBar: {
-    height: 35,
+    height: 10,
     width: '100%',
-    backgroundColor: PURPLE,
+    backgroundColor: ORANGE,
   },
 
   scrollContent: {
@@ -199,15 +211,20 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    width: '88%',
+    width: '90%',
     maxWidth: 620,
-    minHeight: 500,
+    minHeight: 560,
     backgroundColor: '#fff',
-    borderRadius: 11,
+    borderRadius: 24,
     paddingHorizontal: 30,
-    paddingTop: 26,
+    paddingTop: 32,
     paddingBottom: 34,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.25,
+    shadowRadius: 20,
+    elevation: 10,
   },
 
   homeIcon: {
@@ -221,7 +238,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 19,
     height: 3,
-    backgroundColor: PURPLE,
+    backgroundColor: ORANGE,
     transform: [{ rotate: '-45deg' }],
     left: 2,
     top: 12,
@@ -231,7 +248,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 19,
     height: 3,
-    backgroundColor: PURPLE,
+    backgroundColor: ORANGE,
     transform: [{ rotate: '45deg' }],
     right: 2,
     top: 12,
@@ -242,7 +259,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 21,
     borderWidth: 2.5,
-    borderColor: PURPLE,
+    borderColor: ORANGE,
     left: 9,
     top: 14,
   },
@@ -253,16 +270,22 @@ const styles = StyleSheet.create({
     height: 10,
     backgroundColor: '#fff',
     borderWidth: 2,
-    borderColor: PURPLE,
+    borderColor: ORANGE,
     bottom: 0,
     left: 6,
   },
 
   title: {
-    color: PURPLE,
-    fontSize: 24,
+    color: ORANGE,
+    fontSize: 28,
     fontWeight: '700',
-    marginBottom: 34,
+    marginBottom: 6,
+  },
+
+  subtitle: {
+    color: '#666',
+    fontSize: 14,
+    marginBottom: 28,
   },
 
   row: {
@@ -286,8 +309,10 @@ const styles = StyleSheet.create({
 
   input: {
     height: 30,
-    backgroundColor: PURPLE,
-    borderRadius: 10,
+    backgroundColor: ORANGE,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#CBD5E1',
     paddingHorizontal: 12,
     paddingVertical: 0,
     color: '#fff',
@@ -296,12 +321,36 @@ const styles = StyleSheet.create({
 
   button: {
     marginTop: 32,
-    width: 110,
-    height: 34,
-    borderRadius: 10,
-    backgroundColor: PURPLE,
+    width: '100%',
+    height: 52,
+    borderRadius: 14,
+    backgroundColor: ORANGE,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  backButton: {
+    width: 132,
+    height: 42,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
+    marginTop: 20,
+    backgroundColor: '#F1E9FF',
+  },
+
+  backButtonPressed: {
+    opacity: 0.7,
+    transform: [{ translateX: -2 }],
+  },
+
+  backText: {
+    color: ORANGE,
+    fontSize: 14,
+    fontWeight: '700',
+    letterSpacing: 0.3,
   },
 
   buttonPressed: {
@@ -309,9 +358,9 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.96 }],
   },
 
-  arrow: {
+  buttonText: {
     color: '#fff',
-    fontSize: 18,
-    marginLeft: 2,
+    fontSize: 15,
+    fontWeight: '700',
   },
 });

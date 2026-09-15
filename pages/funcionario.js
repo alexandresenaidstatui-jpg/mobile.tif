@@ -13,7 +13,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 
 
-export default function Funcionario({ onCadastroConcluido }) {
+export default function Funcionario({ onVoltar, onCadastroConcluido }) {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -139,11 +139,19 @@ export default function Funcionario({ onCadastroConcluido }) {
 
           {/* Botão */}
           <TouchableOpacity
+            style={styles.backButton}
+            onPress={onVoltar}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.backText}>←  Voltar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
             style={styles.nextButton}
             onPress={continuar}
             activeOpacity={0.8}
           >
-           
+            <Text style={styles.buttonText}>Continuar</Text>
           </TouchableOpacity>
 
         </View>
@@ -164,7 +172,7 @@ const styles = StyleSheet.create({
 
   
   topBar: {
-    height: 36,
+    height: 10,
     width: "100%",
     backgroundColor: "#914CFF",
   },
@@ -181,7 +189,7 @@ const styles = StyleSheet.create({
     maxWidth: 620,
     minHeight: 500,
     backgroundColor: "#fff",
-    borderRadius: 11,
+    borderRadius: 24,
 
     paddingHorizontal: 30,
     paddingTop: 26,
@@ -201,10 +209,10 @@ const styles = StyleSheet.create({
 
   
   title: {
-    color: "#914CFF",
-    fontSize: 24,
+    color: "#111",
+    fontSize: 28,
     fontWeight: "700",
-    marginBottom: 34,
+    marginBottom: 30,
   },
 
   fieldFull: {
@@ -236,7 +244,9 @@ const styles = StyleSheet.create({
 
     backgroundColor: "#914CFF",
 
-    borderRadius: 10,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#CBD5E1",
 
     paddingHorizontal: 12,
     paddingVertical: 0,
@@ -247,17 +257,42 @@ const styles = StyleSheet.create({
 
  
   nextButton: {
-    width: 110,
-    height: 34,
+    width: "100%",
+    height: 52,
 
     backgroundColor: "#914CFF",
 
-    borderRadius: 10,
+    borderRadius: 14,
 
     justifyContent: "center",
     alignItems: "center",
 
     marginTop: 32,
+  },
+
+  backButton: {
+    width: 132,
+    height: 42,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    alignSelf: "flex-start",
+    marginTop: 20,
+    backgroundColor: "#F1E9FF",
+  },
+
+  backText: {
+    color: "#914CFF",
+    fontSize: 14,
+    fontWeight: "700",
+    letterSpacing: 0.3,
+  },
+
+  buttonText: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "700",
   },
 
 });
