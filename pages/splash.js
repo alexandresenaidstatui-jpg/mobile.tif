@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
 		height: '37%',
 		left: '22.5%',
 		bottom: '-10%',
+		transform: [{ translateY: 35 }],
 		backgroundColor: '#000',
 		borderWidth: 11,
 		borderTopWidth: 0,
