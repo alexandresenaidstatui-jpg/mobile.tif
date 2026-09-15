@@ -9,7 +9,7 @@ import {
 
 const PURPLE = '#9147FF';
 
-export default function Quem_E_Você({ onAlunoContinue }) {
+export default function Quem_E_Voce({ onAlunoContinue, onFuncionarioContinue }) {
   const [tipo, setTipo] = useState(null);
 
   function continuar() {
@@ -23,7 +23,7 @@ export default function Quem_E_Você({ onAlunoContinue }) {
       return;
     }
 
-    Alert.alert('Perfil selecionado', 'Você selecionou Funcionário.');
+    onFuncionarioContinue();
   }
 
   return (
@@ -118,8 +118,8 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    width: '74%',
-    height: 235,
+    width: '85%',
+    height: 360,
 
     backgroundColor: '#fff',
 
@@ -127,15 +127,15 @@ const styles = StyleSheet.create({
 
     alignItems: 'center',
 
-    paddingTop: 12,
+    paddingTop: 24,
   },
 
   /*
    * Ícone de casa
    */
   homeIcon: {
-    width: 28,
-    height: 30,
+    width: 42,
+    height: 44,
     position: 'relative',
     marginBottom: 0,
   },
@@ -143,13 +143,13 @@ const styles = StyleSheet.create({
   roofLeft: {
     position: 'absolute',
 
-    width: 13,
-    height: 2,
+    width: 19,
+    height: 3,
 
     backgroundColor: PURPLE,
 
-    left: 1,
-    top: 8,
+    left: 2,
+    top: 12,
 
     transform: [
       { rotate: '-45deg' },
@@ -159,13 +159,13 @@ const styles = StyleSheet.create({
   roofRight: {
     position: 'absolute',
 
-    width: 13,
-    height: 2,
+    width: 19,
+    height: 3,
 
     backgroundColor: PURPLE,
 
-    right: 1,
-    top: 8,
+    right: 2,
+    top: 12,
 
     transform: [
       { rotate: '45deg' },
@@ -175,26 +175,26 @@ const styles = StyleSheet.create({
   house: {
     position: 'absolute',
 
-    width: 16,
-    height: 14,
+    width: 24,
+    height: 21,
 
-    borderWidth: 1.5,
+    borderWidth: 2,
     borderColor: PURPLE,
 
-    left: 6,
-    top: 9,
+    left: 9,
+    top: 14,
   },
 
   door: {
     position: 'absolute',
 
-    width: 5,
-    height: 7,
+    width: 7,
+    height: 10,
 
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderColor: PURPLE,
 
-    left: 4,
+    left: 6,
     bottom: 0,
   },
 
@@ -204,20 +204,20 @@ const styles = StyleSheet.create({
   title: {
     color: PURPLE,
 
-    fontSize: 16,
+    fontSize: 24,
 
     fontWeight: '700',
 
     marginTop: 0,
-    marginBottom: 20,
+    marginBottom: 28,
   },
 
   /*
    * Opções
    */
   option: {
-    width: '58%',
-    height: 12,
+    width: '68%',
+    height: 30,
 
     borderRadius: 10,
 
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
-    marginBottom: 32,
+    marginBottom: 24,
   },
 
   optionSelected: {
@@ -240,11 +240,11 @@ const styles = StyleSheet.create({
   optionText: {
     color: '#000',
 
-    fontSize: 9,
+    fontSize: 16,
 
     fontWeight: '500',
 
-    lineHeight: 10,
+    lineHeight: 18,
   },
 
   /*
@@ -253,10 +253,10 @@ const styles = StyleSheet.create({
   continueButton: {
     position: 'absolute',
 
-    bottom: 28,
+    bottom: 30,
 
-    width: 76,
-    height: 15,
+    width: 110,
+    height: 32,
 
     borderRadius: 10,
 
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   arrow: {
     color: '#fff',
 
-    fontSize: 10,
+    fontSize: 18,
 
     marginLeft: 2,
   },

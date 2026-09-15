@@ -14,7 +14,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 const PURPLE = '#9147FF';
 
-export default function Aluno() {
+export default function Aluno({ onCadastroConcluido }) {
   const [email, setEmail] = useState('');
   const [nome, setNome] = useState('');
   const [senha, setSenha] = useState('');
@@ -33,7 +33,14 @@ export default function Aluno() {
       return;
     }
 
-    Alert.alert('Sucesso', 'Aluno cadastrado!');
+    Alert.alert(
+      'Sucesso',
+      'Aluno cadastrado!',
+      [{
+        text: 'Continuar',
+        onPress: onCadastroConcluido,
+      }]
+    );
   }
 
   return (
@@ -188,74 +195,74 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 40,
+    paddingVertical: 56,
   },
 
   card: {
-    width: '74%',
-    maxWidth: 420,
-    minHeight: 333,
+    width: '88%',
+    maxWidth: 620,
+    minHeight: 500,
     backgroundColor: '#fff',
     borderRadius: 11,
-    paddingHorizontal: 18,
-    paddingTop: 12,
-    paddingBottom: 25,
+    paddingHorizontal: 30,
+    paddingTop: 26,
+    paddingBottom: 34,
     alignItems: 'center',
   },
 
   homeIcon: {
-    width: 28,
-    height: 30,
-    marginBottom: 2,
+    width: 42,
+    height: 44,
+    marginBottom: 8,
     position: 'relative',
   },
 
   roofLeft: {
     position: 'absolute',
-    width: 12,
-    height: 2,
+    width: 19,
+    height: 3,
     backgroundColor: PURPLE,
     transform: [{ rotate: '-45deg' }],
     left: 2,
-    top: 7,
+    top: 12,
   },
 
   roofRight: {
     position: 'absolute',
-    width: 12,
-    height: 2,
+    width: 19,
+    height: 3,
     backgroundColor: PURPLE,
     transform: [{ rotate: '45deg' }],
     right: 2,
-    top: 7,
+    top: 12,
   },
 
   house: {
     position: 'absolute',
-    width: 16,
-    height: 14,
-    borderWidth: 2,
+    width: 24,
+    height: 21,
+    borderWidth: 2.5,
     borderColor: PURPLE,
-    left: 6,
-    top: 8,
+    left: 9,
+    top: 14,
   },
 
   door: {
     position: 'absolute',
-    width: 5,
-    height: 7,
+    width: 7,
+    height: 10,
     backgroundColor: '#fff',
-    borderWidth: 1.5,
+    borderWidth: 2,
     borderColor: PURPLE,
     bottom: 0,
-    left: 4,
+    left: 6,
   },
 
   title: {
     color: PURPLE,
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: '700',
-    marginBottom: 25,
+    marginBottom: 34,
   },
 
   row: {
@@ -263,7 +270,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    marginBottom: 17,
+    marginBottom: 24,
   },
 
   fieldContainer: {
@@ -272,25 +279,25 @@ const styles = StyleSheet.create({
 
   label: {
     color: '#111',
-    fontSize: 9,
-    marginLeft: 4,
-    marginBottom: 2,
+    fontSize: 14,
+    marginLeft: 6,
+    marginBottom: 5,
   },
 
   input: {
-    height: 12,
+    height: 30,
     backgroundColor: PURPLE,
-    borderRadius: 8,
-    paddingHorizontal: 8,
+    borderRadius: 10,
+    paddingHorizontal: 12,
     paddingVertical: 0,
     color: '#fff',
-    fontSize: 9,
+    fontSize: 14,
   },
 
   button: {
-    marginTop: 22,
-    width: 76,
-    height: 15,
+    marginTop: 32,
+    width: 110,
+    height: 34,
     borderRadius: 10,
     backgroundColor: PURPLE,
     alignItems: 'center',
@@ -304,7 +311,7 @@ const styles = StyleSheet.create({
 
   arrow: {
     color: '#fff',
-    fontSize: 10,
+    fontSize: 18,
     marginLeft: 2,
   },
 });
